@@ -1,6 +1,6 @@
 # Generation 4 Pokédex Locations & Obtain Guide
 
-An interactive, responsive, and visually stunning web application to search, filter, and discover exactly where and how to obtain all 493 Pokémon across the Generation IV games: **Pokémon Diamond, Pearl, Platinum, HeartGold, and SoulSilver**.
+A web application to search, filter, and discover exactly where and how to obtain all 493 Pokémon across the Generation IV games: **Pokémon Diamond, Pearl, Platinum, HeartGold, and SoulSilver**.
 
 Live Webpage: `https://atouloupas.github.io/pokedex-locations/`
 
