@@ -1,0 +1,5 @@
+# Local cache
+data/cache/
+
+# Agent configurations
+.agents/

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore obtaining methods and wild locations for all Generation 4 Pokémon in Diamond, Pearl, Platinum, HeartGold, and SoulSilver.">
+  <title>Gen 4 Pokédex Locations & Obtain Guide</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Header -->
+    <header>
+      <div class="logo-container">
+        <svg class="logo-pokeball" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#ef4444" />
+          <path d="M2 50 A 48 48 0 0 0 98 50 Z" fill="#ef4444" />
+          <path d="M2 50 A 48 48 0 0 1 98 50 Z" fill="#ffffff" />
+          <rect x="2" y="46" width="96" height="8" fill="#1e293b" />
+          <circle cx="50" cy="50" r="18" fill="#1e293b" />
+          <circle cx="50" cy="50" r="12" fill="#ffffff" />
+          <circle cx="50" cy="50" r="6" fill="#cbd5e1" />
+        </svg>
+        <h1>Sinnoh & Johto Obtain Guide</h1>
+      </div>
+      <p>Interactive Pokédex Locations for Generation IV Pokémon games</p>
+    </header>
+
+    <!-- Controls Panel -->
+    <section class="glass-panel filters-box" id="filters-container">
+      
+      <!-- Top Row: Search & Info Button -->
+      <div class="search-row">
+        <div class="search-input-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="search-input" placeholder="Search by name, National ID, or Pokédex number..." aria-label="Search Pokémon">
+          <i class="fa-solid fa-circle-xmark search-clear-icon" id="search-clear-btn" style="display: none;" role="button" aria-label="Clear search"></i>
+        </div>
+        <button class="btn-info" id="info-modal-trigger" aria-label="Open information modal">
+          <i class="fa-solid fa-circle-info"></i> Guide Info
+        </button>
+      </div>
+
+      <!-- Filters Grid -->
+      <div class="filters-grid">
+        
+        <!-- Game Filter (Horizontal Buttons) -->
+        <div class="filter-group">
+          <label>Active Game</label>
+          <div class="game-selector-container" id="game-selectors">
+            <button class="game-btn active" data-game="diamond">Diamond</button>
+            <button class="game-btn" data-game="pearl">Pearl</button>
+            <button class="game-btn" data-game="platinum">Platinum</button>
+            <button class="game-btn" data-game="heartgold">HeartGold</button>
+            <button class="game-btn" data-game="soulsilver">SoulSilver</button>
+          </div>
+        </div>
+
+        <!-- Pokédex Filter -->
+        <div class="filter-group">
+          <label for="pokedex-select">Active Pokédex</label>
+          <select id="pokedex-select">
+            <option value="national">National Pokédex (1 - 493)</option>
+            <option value="original-sinnoh">Sinnoh Pokédex (Diamond/Pearl, 1 - 151)</option>
+            <option value="extended-sinnoh">Sinnoh Pokédex (Platinum, 1 - 210)</option>
+            <option value="updated-johto">Johto Pokédex (HeartGold/SoulSilver, 1 - 256)</option>
+          </select>
+        </div>
+
+        <!-- Type Filter -->
+        <div class="filter-group">
+          <label for="type-select">Filter by Type</label>
+          <select id="type-select">
+            <option value="all">All Types</option>
+            <option value="normal">Normal</option>
+            <option value="fire">Fire</option>
+            <option value="water">Water</option>
+            <option value="grass">Grass</option>
+            <option value="electric">Electric</option>
+            <option value="ice">Ice</option>
+            <option value="fighting">Fighting</option>
+            <option value="poison">Poison</option>
+            <option value="ground">Ground</option>
+            <option value="flying">Flying</option>
+            <option value="psychic">Psychic</option>
+            <option value="bug">Bug</option>
+            <option value="rock">Rock</option>
+            <option value="ghost">Ghost</option>
+            <option value="dragon">Dragon</option>
+            <option value="steel">Steel</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+
+        <!-- Encounter Method Filter -->
+        <div class="filter-group">
+          <label for="method-select">Filter by Encounter Method</label>
+          <select id="method-select">
+            <option value="all">All Methods</option>
+            <option value="wild">Wild Encounter</option>
+            <option value="evolution">Evolution</option>
+            <option value="gift">Gift</option>
+            <option value="gift-egg">Gift Egg</option>
+            <option value="breeding">Breeding</option>
+            <option value="only-one">Only One / Static</option>
+            <option value="transfer-only">Trade / Transfer</option>
+            <option value="event">Event</option>
+          </select>
+        </div>
+
+        <!-- Encounter Condition Filter -->
+        <div class="filter-group">
+          <label for="condition-select">Filter by Encounter Condition</label>
+          <select id="condition-select">
+            <option value="all">All Conditions</option>
+            <option value="swarm">Swarms</option>
+            <option value="radar">Poké Radar</option>
+            <option value="gba">GBA Slot (Any)</option>
+            <option value="gba-ruby">GBA Ruby</option>
+            <option value="gba-sapphire">GBA Sapphire</option>
+            <option value="gba-emerald">GBA Emerald</option>
+            <option value="gba-firered">GBA FireRed</option>
+            <option value="gba-leafgreen">GBA LeafGreen</option>
+            <option value="headbutt">Headbutt Trees</option>
+            <option value="honey">Honey Trees</option>
+            <option value="time">Time Events</option>
+          </select>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Stats Info Row -->
+    <div class="stats-bar">
+      <div class="stats-count" id="stats-count">
+        Showing <span>0</span> of <span>0</span> Pokémon
+      </div>
+      <div class="active-filters-desc" id="active-filters-desc">
+        Diamond Pokedex
+      </div>
+    </div>
+
+    <!-- Pokedex Table Panel -->
+    <main class="glass-panel" id="table-container">
+      <div class="table-wrapper">
+        <table id="pokedex-table">
+          <thead>
+            <tr>
+              <th class="col-index sortable" data-sort="dex-id">Index <i class="fa-solid fa-sort"></i></th>
+              <th class="col-pokemon sortable" data-sort="name">Pokémon <i class="fa-solid fa-sort"></i></th>
+              <th class="col-method">Encounter Method</th>
+              <th class="col-evo">Evolution Condition</th>
+              <th class="col-locations">Location & Encounter Details</th>
+            </tr>
+          </thead>
+          <tbody id="pokedex-table-body">
+            <!-- Loaded via app.js -->
+            <tr class="loading-row">
+              <td colspan="5">
+                <div class="loading-overlay">
+                  <div class="spinner"></div>
+                  <div class="loading-text">Loading Gen 4 Pokédex Database...</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination and Page controls -->
+      <div class="pagination-container">
+        <div class="page-size-selector">
+          <label for="page-size-select">Items per page:</label>
+          <select id="page-size-select">
+            <option value="25">25</option>
+            <option value="50" selected>50</option>
+            <option value="100">100</option>
+            <option value="all">Show All</option>
+          </select>
+        </div>
+        <div class="pagination-buttons">
+          <button class="page-btn" id="prev-page-btn" disabled><i class="fa-solid fa-chevron-left"></i> Previous</button>
+          <span class="page-info" id="page-info">Page 1 of 1</span>
+          <button class="page-btn" id="next-page-btn" disabled>Next <i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Info/About Modal -->
+  <div class="modal" id="info-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="glass-panel modal-content">
+      <span class="modal-close" id="modal-close" role="button" aria-label="Close modal">&times;</span>
+      <h2 id="modal-title">Generation 4 Mechanics Guide</h2>
+      
+      <h3>Obtaining Methods</h3>
+      <p>This guide compiles all methods of obtaining the 493 Pokémon in Generation IV games. Depending on the selected active game, the obtain status will change:</p>
+      <ul>
+        <li><strong>Wild Encounter:</strong> Found in bushes, water, caves, or fishing in that game.</li>
+        <li><strong>Evolution:</strong> Evolve from a pre-evolution. The specific evolution trigger (level, stone, location, time) is shown in the evolution column.</li>
+        <li><strong>Gift:</strong> Handed to you by an NPC (e.g. Starters, Togepi egg, Eevee, Riolu egg).</li>
+        <li><strong>Static / Only One:</strong> Encountered as a unique stationary sprite on the map (e.g., Legendaries, Rotom, Spiritomb).</li>
+        <li><strong>Pal Park:</strong> Cannot be obtained natively in Sinnoh, but can be caught in the Pal Park by migrating them from Generation III GBA games (Ruby, Sapphire, Emerald, FireRed, LeafGreen).</li>
+        <li><strong>Trade / Transfer Only:</strong> Unobtainable natively in that specific version. Requires trading with other Gen 4 versions or migrating via Pal Park.</li>
+      </ul>
+
+      <h3>Special Encounter Conditions</h3>
+      <p>Some wild encounters only appear under specific conditions (look for badges in the locations column):</p>
+      <ul>
+        <li><strong>Swarms:</strong> A specific Pokémon species will swarm in a single location each day after obtaining the National Pokédex. Talk to Dawn/Lucas's sister or check TVs.</li>
+        <li><strong>Poké Radar:</strong> Accessible after completing the Sinnoh Pokédex. Use the Poké Radar in tall grass to discover exclusive Pokémon.</li>
+        <li><strong>GBA Slot Insertion:</strong> In Diamond, Pearl, and Platinum, inserting a specific GBA Pokémon cartridge into Slot 2 of the Nintendo DS will cause certain Pokémon to appear in the wild.</li>
+        <li><strong>Time of Day:</strong> Some Pokémon only appear during the Morning, Day, or Night.</li>
+        <li><strong>Headbutt Trees:</strong> In HeartGold and SoulSilver, using the Headbutt move on specific trees will trigger wild encounters.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- App Logic script -->
+  <script src="app.js"></script>
+</body>
+</html>
